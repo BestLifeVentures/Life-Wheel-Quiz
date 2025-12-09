@@ -1,0 +1,17 @@
+{
+  "name": "life-wheel-quiz",
+  "version": "1.0.0",
+  "description": "3-minute emotion-focused life assessment quiz",
+  "scripts": {
+    "build": "echo 'No build required - static site'",
+    "start": "echo 'Open index.html in browser'"
+  },
+  "keywords": [
+    "quiz",
+    "life-assessment",
+    "wellness"
+  ],
+  "author": "Best Life Ventures",
+  "license": "UNLICENSED",
+  "private": true
+}

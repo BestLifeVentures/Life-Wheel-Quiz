@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Life Wheel Quiz - 3 Minute Life Score</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Pre-Quiz Form -->
+    <div id="intro-screen" class="screen active">
+        <div class="container">
+            <h2 class="small-title">3 minute life score for video reference</h2>
+            <form id="intro-form">
+                <div class="form-group">
+                    <label for="blv-id" class="small-label">BLV ID (Optional)</label>
+                    <input type="text" id="blv-id" name="blvId" placeholder="Your BLV ID">
+                </div>
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="firstName" placeholder="Your first name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <button type="submit" class="primary-button">Get My Score</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Framing Prompt Screen -->
+    <div id="framing-screen" class="screen">
+        <div class="container">
+            <div class="framing-prompt">
+                <h2>🧘 Before You Begin</h2>
+                <p>Take a deep breath. Clear your mind of the immediate past hour and your current task.</p>
+                <p>Think back on the <strong>past year</strong>.</p>
+                <p>For each statement, complete the sentence <strong>"Over the past year, I..."</strong> then use the slider to rate how true the statement was for you.</p>
+                <p class="emphasis">1 = the most extreme negative experience</p>
+                <p class="emphasis">10 = minimal pain/maximum positive</p>
+                <button class="primary-button" onclick="startQuiz()">Start Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen">
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="container quiz-container">
+            <div id="question-content">
+                <div class="category-icon" id="category-icon"></div>
+                <h3 class="category-title" id="category-title"></h3>
+                <p class="instruction">Click/tap your place on the line</p>
+                <p class="question-text" id="question-text"></p>
+
+                <div class="slider-container">
+                    <div class="slider-wrapper">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="answer-slider">
+                        <div class="slider-value" id="slider-value">5</div>
+                    </div>
+                    <div class="slider-labels">
+                        <span class="label-left" id="label-left"></span>
+                        <span class="label-right" id="label-right"></span>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="secondary-button" id="back-button" onclick="goBack()" style="visibility: hidden;">Go Back</button>
+                    <button class="primary-button" id="next-button" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <div class="container results-container">
+            <h2>Your Life Wheel Score</h2>
+            <div id="results-chart-container">
+                <canvas id="results-canvas" width="600" height="600"></canvas>
+            </div>
+            <div class="category-scores" id="category-scores"></div>
+            <button class="primary-button" onclick="saveResults()">Save Results</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>

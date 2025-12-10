@@ -206,7 +206,7 @@ function displayQuestion() {
     // Update content
     document.getElementById('category-icon').textContent = question.icon;
     document.getElementById('category-title').textContent = question.category;
-    document.getElementById('question-text').textContent = 'Over the past year, I ' + question.text;
+    document.getElementById('question-text').textContent = 'Over the past year I...';
     document.getElementById('label-left').textContent = question.labelLeft;
     document.getElementById('label-right').textContent = question.labelRight;
 
@@ -406,7 +406,7 @@ function drawWheelChart(categoryScores) {
         ctx.fillStyle = '#F9FAFB';
     });
 
-    // Draw center circle with "RATE 1-10"
+    // Draw center circle
     ctx.fillStyle = '#2D3139';
     ctx.beginPath();
     ctx.arc(centerX, centerY, 60, 0, 2 * Math.PI);
@@ -414,12 +414,7 @@ function drawWheelChart(categoryScores) {
     ctx.strokeStyle = '#3A3F4A';
     ctx.lineWidth = 2;
     ctx.stroke();
-
-    ctx.fillStyle = '#C1C7D0';
-    ctx.font = '600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
-    ctx.textAlign = 'center';
-    ctx.fillText('RATE', centerX, centerY - 5);
-    ctx.fillText('1 - 10', centerX, centerY + 20);
+}
 }
 
 function saveResults() {

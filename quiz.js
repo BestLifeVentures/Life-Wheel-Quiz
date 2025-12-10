@@ -297,12 +297,12 @@ function drawWheelChart(categoryScores) {
     const centerY = canvas.height / 2;
     const maxRadius = 220;
 
-    // Clear canvas with dark background
-    ctx.fillStyle = '#2C3E50';
+    // Clear canvas with light background
+    ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Draw background circles
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.strokeStyle = '#E5E7EB';
     ctx.lineWidth = 1;
     for (let i = 1; i <= 10; i++) {
         ctx.beginPath();
@@ -314,7 +314,7 @@ function drawWheelChart(categoryScores) {
     const numCategories = categoryScores.length;
     const angleStep = (2 * Math.PI) / numCategories;
 
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.strokeStyle = '#E5E7EB';
     ctx.lineWidth = 1;
     for (let i = 0; i < numCategories; i++) {
         const angle = i * angleStep - Math.PI / 2;
@@ -344,14 +344,14 @@ function drawWheelChart(categoryScores) {
 
     // Fill with gradient
     const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
-    gradient.addColorStop(0, 'rgba(45, 91, 255, 0.3)');
-    gradient.addColorStop(1, 'rgba(253, 176, 34, 0.3)');
+    gradient.addColorStop(0, 'rgba(45, 91, 255, 0.15)');
+    gradient.addColorStop(1, 'rgba(45, 91, 255, 0.05)');
     ctx.fillStyle = gradient;
     ctx.fill();
 
     // Stroke the polygon
     ctx.strokeStyle = '#2D5BFF';
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2;
     ctx.stroke();
 
     // Draw points with glow effect
@@ -378,8 +378,8 @@ function drawWheelChart(categoryScores) {
     });
 
     // Draw category labels and values
-    ctx.fillStyle = '#ECF0F1';
-    ctx.font = 'bold 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
+    ctx.fillStyle = '#1F2937';
+    ctx.font = '600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
     ctx.textAlign = 'center';
 
     categoryScores.forEach((cat, i) => {
@@ -391,30 +391,30 @@ function drawWheelChart(categoryScores) {
         // Draw icon and name
         ctx.fillStyle = cat.color;
         ctx.fillText(cat.icon, x, y - 10);
-        ctx.font = 'bold 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
-        ctx.fillStyle = '#ECF0F1';
+        ctx.font = '600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
+        ctx.fillStyle = '#4B5563';
         ctx.fillText(cat.name, x, y + 8);
 
         // Draw score
-        ctx.font = 'bold 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
-        ctx.fillStyle = cat.color;
+        ctx.font = '600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
+        ctx.fillStyle = '#2D5BFF';
         ctx.fillText(cat.score, x, y + 28);
 
         // Reset font
-        ctx.font = 'bold 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
+        ctx.font = '600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
     });
 
     // Draw center circle with "RATE 1-10"
-    ctx.fillStyle = '#2C3E50';
+    ctx.fillStyle = '#F9FAFB';
     ctx.beginPath();
     ctx.arc(centerX, centerY, 60, 0, 2 * Math.PI);
     ctx.fill();
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+    ctx.strokeStyle = '#E5E7EB';
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = '#ECF0F1';
-    ctx.font = 'bold 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
+    ctx.fillStyle = '#4B5563';
+    ctx.font = '600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
     ctx.textAlign = 'center';
     ctx.fillText('RATE', centerX, centerY - 5);
     ctx.fillText('1 - 10', centerX, centerY + 20);

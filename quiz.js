@@ -7,19 +7,19 @@ const quizData = {
             color: '#EC4899',
             questions: [
                 {
-                    text: 'felt about my ability to manage my money and handle unexpected expenses...',
-                    labelLeft: '...felt completely out of control and financially helpless.',
-                    labelRight: '...felt highly competent and always in command of my financial situation.'
+                    text: 'felt about the daily anxiety and stress related to my financial survival (bills, debt, etc.).',
+                    labelLeft: '...felt constant dread and deep stress over my financial future.',
+                    labelRight: '...felt zero anxiety and consistent confidence in my financial security.'
                 },
                 {
-                    text: 'felt about the relief and security of my current finances covering my needs and plans...',
-                    labelLeft: '...felt constantly stressed and terrified that my finances were inadequate for my basic needs.',
-                    labelRight: '...felt consistently secure and calm about my current and future financial status.'
+                    text: 'believed about my competence to manage my money and make sound financial decisions.',
+                    labelLeft: '...felt utterly incompetent and out of control with my money.',
+                    labelRight: '...felt highly competent and fully in command of my financial choices.'
                 },
                 {
-                    text: 'believed about the fairness of my income and opportunity...',
-                    labelLeft: '...believed my financial situation was profoundly unfair and felt deep resentment.',
-                    labelRight: '...believed my financial situation was completely fair and felt deep satisfaction.'
+                    text: 'felt about whether my finances allowed me to pursue my most important life goals and desired experiences.',
+                    labelLeft: '...felt completely constrained and prevented from pursuing my goals by money.',
+                    labelRight: '...felt my finances fully supported all my life goals and desires.'
                 }
             ]
         },
@@ -29,19 +29,19 @@ const quizData = {
             color: '#06B6D4',
             questions: [
                 {
-                    text: 'believed about the impact of my choices (diet, sleep, exercise) on my physical well-being...',
-                    labelLeft: '...believed my health outcomes were out of my hands and felt powerless to change them.',
-                    labelRight: '...believed my health outcomes were strongly within my control and felt empowered by my choices.'
+                    text: 'felt about my physical energy level and vitality during a typical day.',
+                    labelLeft: '...felt perpetually exhausted and physically drained.',
+                    labelRight: '...felt consistently vital and full of energy.'
                 },
                 {
-                    text: 'felt about the physical appearance and capabilities of my body...',
-                    labelLeft: '...felt deeply ashamed and consistently judged my body negatively.',
-                    labelRight: '...felt deep acceptance and consistently appreciated my body\'s form and function.'
+                    text: 'believed about the reliable function of my body (mobility, strength, internal health).',
+                    labelLeft: '...felt my body often failed me and was unreliable.',
+                    labelRight: '...felt my body functioned perfectly and was highly reliable.'
                 },
                 {
-                    text: 'experienced discomfort, low energy, or pain in my daily physical life...',
-                    labelLeft: '...felt severely handicapped and consistently drained by physical discomfort and lack of energy.',
-                    labelRight: '...felt consistently energetic and rarely experienced any significant physical discomfort.'
+                    text: 'felt about my physical appearance and how satisfied I was with the way I looked.',
+                    labelLeft: '...felt intense disgust or dissatisfaction with my looks.',
+                    labelRight: '...felt completely satisfied and proud of my physical appearance.'
                 }
             ]
         },
@@ -51,19 +51,19 @@ const quizData = {
             color: '#A855F7',
             questions: [
                 {
-                    text: 'felt about my worthiness and equality compared to others...',
-                    labelLeft: '...felt fundamentally worthless and undeserving of basic happiness or good treatment.',
-                    labelRight: '...felt profoundly worthy and deserving of all the happiness life has to offer.'
+                    text: 'believed about my current place and circumstances in life.',
+                    labelLeft: '...believed I was completely off track or lost in life.',
+                    labelRight: '...believed I was exactly where I needed to be and felt peace.'
                 },
                 {
-                    text: 'felt about my ability to recover from setbacks or strong negative emotions...',
-                    labelLeft: '...felt completely overwhelmed and incapable of recovering from emotional challenges.',
-                    labelRight: '...felt highly resilient and confident in my ability to manage and recover from any emotional distress.'
+                    text: 'felt about the emotions I experienced, even the difficult or negative ones.',
+                    labelLeft: '...felt I hated or despised the difficult emotions I experienced.',
+                    labelRight: '...felt I liked and accepted all the emotions I experienced.'
                 },
                 {
-                    text: 'felt about my influence over my life\'s path...',
-                    labelLeft: '...felt utterly powerless and trapped by external circumstances controlling my life.',
-                    labelRight: '...felt highly powerful and confident in my ability to shape my life\'s decisions and direction.'
+                    text: 'felt upon waking up about the day ahead.',
+                    labelLeft: '...felt a sense of dread and was not excited for the day.',
+                    labelRight: '...felt genuine excitement and readiness for the day ahead.'
                 }
             ]
         },
@@ -73,19 +73,19 @@ const quizData = {
             color: '#F97316',
             questions: [
                 {
-                    text: 'believed about the availability of people who would reliably be there for me in a major crisis...',
-                    labelLeft: '...believed I was completely alone and doubted anyone would truly stand by me in a crisis.',
-                    labelRight: '...believed I was completely surrounded by reliable people who would support me no matter what.'
+                    text: 'felt about the emotional safety and freedom to be my authentic self in my key relationships.',
+                    labelLeft: '...felt I had to change myself or hide who I was to be accepted.',
+                    labelRight: '...felt fully connected while remaining completely authentic.'
                 },
                 {
-                    text: 'experienced in my key relationships regarding mutual respect and understanding...',
-                    labelLeft: '...experienced frequent and deep conflict and felt highly misunderstood in my key relationships.',
-                    labelRight: '...experienced consistent harmony and felt deeply respected and understood in my key relationships.'
+                    text: 'believed about having people available to do the activities and experiences I truly wanted to do.',
+                    labelLeft: '...felt I never had anyone to share activities I desired with.',
+                    labelRight: '...felt I always had people available to share desired experiences with.'
                 },
                 {
-                    text: 'felt about being completely open and vulnerable with people close to me...',
-                    labelLeft: '...felt I had to hide my true self and felt emotionally isolated from others.',
-                    labelRight: '...felt I could be consistently vulnerable and deeply connected to others without any fear of judgment.'
+                    text: 'believed about the reliability of having someone truly there for me if I faced a major personal crisis.',
+                    labelLeft: '...believed I was completely alone and had no reliable support system.',
+                    labelRight: '...believed I was completely supported and never alone in a crisis.'
                 }
             ]
         },
@@ -95,19 +95,19 @@ const quizData = {
             color: '#84CC16',
             questions: [
                 {
-                    text: 'felt about the value and purpose of my life and the activities I engaged in...',
-                    labelLeft: '...felt my life was fundamentally meaningless, aimless, and I lacked any compelling purpose.',
-                    labelRight: '...felt my life had a clear, profound purpose that motivated my every action.'
+                    text: 'felt about my faith, core beliefs, or philosophy guiding my life.',
+                    labelLeft: '...felt I did not trust my faith or beliefs at all.',
+                    labelRight: '...felt a deep, consistent trust in my faith and guiding beliefs.'
                 },
                 {
-                    text: 'experienced a sense of wonder, awe, or connection to something vast and inspiring...',
-                    labelLeft: '...felt life was monotonous and I rarely experienced true wonder or deep spiritual connection.',
-                    labelRight: '...frequently experienced moments of awe and felt deeply connected to a higher power or the universe.'
+                    text: 'believed about whether the general flow of life and events worked in my favor.',
+                    labelLeft: '...believed things were constantly working against me and felt like a victim.',
+                    labelRight: '...believed things were always working in my favor and felt positive.'
                 },
                 {
-                    text: 'felt about my own future and the future of the world around me...',
-                    labelLeft: '...felt consistently hopeless and deeply pessimistic about both my personal future and the world\'s direction.',
-                    labelRight: '...felt consistently hopeful and fundamentally optimistic about my future and the world\'s progress.'
+                    text: 'felt about my connection to something greater than myself (nature, cosmos, divinity, humanity).',
+                    labelLeft: '...felt profoundly disconnected and isolated from the rest of existence.',
+                    labelRight: '...felt a powerful, consistent sense of connection and awe.'
                 }
             ]
         }
@@ -206,7 +206,7 @@ function displayQuestion() {
     // Update content
     document.getElementById('category-icon').textContent = question.icon;
     document.getElementById('category-title').textContent = question.category;
-    document.getElementById('question-text').textContent = 'Over the past year I...';
+    document.getElementById('question-text').textContent = 'This year, I...';
     document.getElementById('label-left').textContent = question.labelLeft;
     document.getElementById('label-right').textContent = question.labelRight;
 

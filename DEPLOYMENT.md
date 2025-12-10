@@ -2,6 +2,30 @@
 
 This is a **static HTML/CSS/JS application** with no build process required.
 
+## 🚨 IMPORTANT: Fix for "Missing entry-point" Error
+
+If you're seeing this error:
+```
+✘ [ERROR] Missing entry-point to Worker script or to assets directory
+```
+
+This means your Cloudflare Pages project is configured with the wrong build command. Follow these steps:
+
+### Quick Fix
+
+1. **Go to Cloudflare Dashboard** → Your Pages Project → **Settings** → **Builds & deployments**
+
+2. **Change these settings:**
+   - **Build command:** Leave **COMPLETELY EMPTY** (or remove `npx wrangler deploy`)
+   - **Build output directory:** `/` (root)
+   - **Framework preset:** None
+
+3. **Click "Save"** and **retry deployment**
+
+The project now includes a `wrangler.toml` file that configures it as a static assets site, so Wrangler will work correctly if triggered by Cloudflare Pages.
+
+---
+
 ## Cloudflare Pages Deployment
 
 ### Option 1: Via Cloudflare Dashboard (Recommended)

@@ -6,36 +6,36 @@
 }
 
 :root {
-    /* Claude-inspired grey theme with blue accents */
-    --primary-blue: #2D5BFF;
-    --secondary-blue: #1E40AF;
-    --accent-blue: #3B82F6;
+    /* Dark grey theme with yellow accents */
+    --accent-yellow: #D4A574;
+    --accent-yellow-bright: #E8C4A0;
+    --accent-yellow-dim: #B8936B;
 
-    /* Grey scale - Claude style */
-    --grey-50: #F9FAFB;
-    --grey-100: #F3F4F6;
-    --grey-200: #E5E7EB;
-    --grey-300: #D1D5DB;
-    --grey-400: #9CA3AF;
+    /* Dark grey scale */
+    --grey-50: #1A1D23;
+    --grey-100: #23272F;
+    --grey-200: #2D3139;
+    --grey-300: #3A3F4A;
+    --grey-400: #4F5562;
     --grey-500: #6B7280;
-    --grey-600: #4B5563;
-    --grey-700: #374151;
-    --grey-800: #1F2937;
-    --grey-900: #111827;
+    --grey-600: #9CA3AF;
+    --grey-700: #C1C7D0;
+    --grey-800: #E5E7EB;
+    --grey-900: #F9FAFB;
 
     /* Functional colors */
-    --background: #FFFFFF;
-    --surface: var(--grey-50);
-    --border: var(--grey-200);
-    --text-primary: var(--grey-900);
-    --text-secondary: var(--grey-600);
-    --text-tertiary: var(--grey-500);
-    --shadow: rgba(0, 0, 0, 0.1);
+    --background: #1A1D23;
+    --surface: #23272F;
+    --border: #3A3F4A;
+    --text-primary: #F9FAFB;
+    --text-secondary: #C1C7D0;
+    --text-tertiary: #9CA3AF;
+    --shadow: rgba(0, 0, 0, 0.3);
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    background: var(--grey-100);
+    background: var(--background);
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
@@ -69,9 +69,9 @@ body {
 
 /* Container */
 .container {
-    background: var(--background);
+    background: var(--surface);
     border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--border);
     padding: 3rem 2rem;
     max-width: 500px;
@@ -122,43 +122,43 @@ input[type="email"] {
     border-radius: 6px;
     font-size: 1rem;
     transition: all 0.15s ease;
-    background: var(--background);
+    background: var(--grey-200);
     color: var(--text-primary);
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus {
     outline: none;
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.1);
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.15);
 }
 
 /* Buttons */
 .primary-button {
     width: 100%;
     padding: 0.75rem 1.5rem;
-    background: var(--primary-blue);
-    color: white;
+    background: var(--accent-yellow);
+    color: var(--grey-50);
     border: none;
     border-radius: 6px;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.15s ease;
 }
 
 .primary-button:hover {
-    background: var(--secondary-blue);
+    background: var(--accent-yellow-bright);
 }
 
 .primary-button:active {
-    background: var(--secondary-blue);
+    background: var(--accent-yellow-dim);
     transform: scale(0.98);
 }
 
 .secondary-button {
     padding: 0.5rem 1rem;
-    background: var(--background);
+    background: transparent;
     color: var(--text-secondary);
     border: 1px solid var(--border);
     border-radius: 6px;
@@ -169,8 +169,8 @@ input[type="email"]:focus {
 }
 
 .secondary-button:hover {
-    background: var(--grey-50);
-    border-color: var(--grey-300);
+    background: var(--grey-200);
+    border-color: var(--grey-400);
     color: var(--text-primary);
 }
 
@@ -183,14 +183,14 @@ input[type="email"]:focus {
 .progress-bar {
     width: 100%;
     height: 4px;
-    background: var(--grey-200);
+    background: var(--grey-300);
     border-radius: 2px;
     overflow: hidden;
 }
 
 .progress-fill {
     height: 100%;
-    background: var(--primary-blue);
+    background: var(--accent-yellow);
     transition: width 0.3s ease;
     width: 0%;
 }
@@ -247,7 +247,7 @@ input[type="email"]:focus {
     width: 100%;
     height: 8px;
     border-radius: 4px;
-    background: linear-gradient(90deg, #EF4444 0%, var(--primary-yellow) 50%, #10B981 100%);
+    background: linear-gradient(90deg, #EF4444 0%, var(--accent-yellow) 50%, #10B981 100%);
     outline: none;
     cursor: pointer;
 }
@@ -258,31 +258,31 @@ input[type="email"]:focus {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: var(--primary-blue);
+    background: var(--accent-yellow);
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(45, 91, 255, 0.4);
+    box-shadow: 0 2px 8px rgba(212, 165, 116, 0.5);
     transition: all 0.2s ease;
 }
 
 .slider::-webkit-slider-thumb:hover {
     transform: scale(1.2);
-    box-shadow: 0 4px 12px rgba(45, 91, 255, 0.6);
+    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.7);
 }
 
 .slider::-moz-range-thumb {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: var(--primary-blue);
+    background: var(--accent-yellow);
     cursor: pointer;
     border: none;
-    box-shadow: 0 2px 8px rgba(45, 91, 255, 0.4);
+    box-shadow: 0 2px 8px rgba(212, 165, 116, 0.5);
     transition: all 0.2s ease;
 }
 
 .slider::-moz-range-thumb:hover {
     transform: scale(1.2);
-    box-shadow: 0 4px 12px rgba(45, 91, 255, 0.6);
+    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.7);
 }
 
 .slider-value {
@@ -335,12 +335,12 @@ input[type="email"]:focus {
 .results-container {
     max-width: 700px;
     text-align: center;
-    background: var(--background);
+    background: var(--surface);
     color: var(--text-primary);
     padding: 3rem 2rem;
     border-radius: 12px;
     border: 1px solid var(--border);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .results-container h2 {
@@ -366,10 +366,10 @@ input[type="email"]:focus {
 }
 
 .score-item {
-    background: var(--grey-50);
+    background: var(--grey-200);
     padding: 1rem;
     border-radius: 6px;
-    border-left: 3px solid var(--primary-blue);
+    border-left: 3px solid var(--accent-yellow);
 }
 
 .score-item h4 {
@@ -382,7 +382,7 @@ input[type="email"]:focus {
 .score-item .score {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--accent-yellow);
 }
 
 /* Mobile Optimization */

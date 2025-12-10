@@ -297,12 +297,12 @@ function drawWheelChart(categoryScores) {
     const centerY = canvas.height / 2;
     const maxRadius = 220;
 
-    // Clear canvas with light background
-    ctx.fillStyle = '#FFFFFF';
+    // Clear canvas with dark background
+    ctx.fillStyle = '#23272F';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Draw background circles
-    ctx.strokeStyle = '#E5E7EB';
+    ctx.strokeStyle = '#3A3F4A';
     ctx.lineWidth = 1;
     for (let i = 1; i <= 10; i++) {
         ctx.beginPath();
@@ -314,7 +314,7 @@ function drawWheelChart(categoryScores) {
     const numCategories = categoryScores.length;
     const angleStep = (2 * Math.PI) / numCategories;
 
-    ctx.strokeStyle = '#E5E7EB';
+    ctx.strokeStyle = '#3A3F4A';
     ctx.lineWidth = 1;
     for (let i = 0; i < numCategories; i++) {
         const angle = i * angleStep - Math.PI / 2;
@@ -344,17 +344,17 @@ function drawWheelChart(categoryScores) {
 
     // Fill with gradient
     const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
-    gradient.addColorStop(0, 'rgba(45, 91, 255, 0.15)');
-    gradient.addColorStop(1, 'rgba(45, 91, 255, 0.05)');
+    gradient.addColorStop(0, 'rgba(212, 165, 116, 0.25)');
+    gradient.addColorStop(1, 'rgba(212, 165, 116, 0.08)');
     ctx.fillStyle = gradient;
     ctx.fill();
 
     // Stroke the polygon
-    ctx.strokeStyle = '#2D5BFF';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#D4A574';
+    ctx.lineWidth = 2.5;
     ctx.stroke();
 
-    // Draw points with glow effect
+    // Draw points with glow effect - all same yellow color
     categoryScores.forEach((cat, i) => {
         const angle = i * angleStep - Math.PI / 2;
         const radius = (cat.score / 10) * maxRadius;
@@ -362,23 +362,23 @@ function drawWheelChart(categoryScores) {
         const y = centerY + radius * Math.sin(angle);
 
         // Glow
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = cat.color;
-        ctx.fillStyle = cat.color;
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = '#D4A574';
+        ctx.fillStyle = '#D4A574';
         ctx.beginPath();
         ctx.arc(x, y, 8, 0, 2 * Math.PI);
         ctx.fill();
         ctx.shadowBlur = 0;
 
-        // White center
-        ctx.fillStyle = '#FFFFFF';
+        // Dark center
+        ctx.fillStyle = '#23272F';
         ctx.beginPath();
         ctx.arc(x, y, 4, 0, 2 * Math.PI);
         ctx.fill();
     });
 
     // Draw category labels and values
-    ctx.fillStyle = '#1F2937';
+    ctx.fillStyle = '#F9FAFB';
     ctx.font = '600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
     ctx.textAlign = 'center';
 
@@ -388,32 +388,34 @@ function drawWheelChart(categoryScores) {
         const x = centerX + labelRadius * Math.cos(angle);
         const y = centerY + labelRadius * Math.sin(angle);
 
-        // Draw icon and name
-        ctx.fillStyle = cat.color;
+        // Draw icon
         ctx.fillText(cat.icon, x, y - 10);
-        ctx.font = '600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
-        ctx.fillStyle = '#4B5563';
+
+        // Draw name
+        ctx.font = '600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
+        ctx.fillStyle = '#C1C7D0';
         ctx.fillText(cat.name, x, y + 8);
 
         // Draw score
-        ctx.font = '600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
-        ctx.fillStyle = '#2D5BFF';
+        ctx.font = '700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
+        ctx.fillStyle = '#D4A574';
         ctx.fillText(cat.score, x, y + 28);
 
-        // Reset font
+        // Reset font and color
         ctx.font = '600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
+        ctx.fillStyle = '#F9FAFB';
     });
 
     // Draw center circle with "RATE 1-10"
-    ctx.fillStyle = '#F9FAFB';
+    ctx.fillStyle = '#2D3139';
     ctx.beginPath();
     ctx.arc(centerX, centerY, 60, 0, 2 * Math.PI);
     ctx.fill();
-    ctx.strokeStyle = '#E5E7EB';
+    ctx.strokeStyle = '#3A3F4A';
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = '#4B5563';
+    ctx.fillStyle = '#C1C7D0';
     ctx.font = '600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
     ctx.textAlign = 'center';
     ctx.fillText('RATE', centerX, centerY - 5);

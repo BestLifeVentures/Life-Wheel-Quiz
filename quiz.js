@@ -415,7 +415,6 @@ function drawWheelChart(categoryScores) {
     ctx.lineWidth = 2;
     ctx.stroke();
 }
-}
 
 function saveResults() {
     const resultsContainer = document.querySelector('.results-container');

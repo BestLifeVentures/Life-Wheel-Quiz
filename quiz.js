@@ -406,10 +406,10 @@ function drawWheelChart(categoryScores) {
         ctx.fillStyle = '#F9FAFB';
     });
 
-    // Draw center circle
+    // Draw center circle (radius = maxRadius/10 to block only up to 1 on scale)
     ctx.fillStyle = '#2D3139';
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 60, 0, 2 * Math.PI);
+    ctx.arc(centerX, centerY, 22, 0, 2 * Math.PI);
     ctx.fill();
     ctx.strokeStyle = '#3A3F4A';
     ctx.lineWidth = 2;

@@ -29,30 +29,14 @@
         </div>
     </div>
 
-    <!-- Framing Prompt Screen -->
-    <div id="framing-screen" class="screen">
-        <div class="container">
-            <div class="framing-prompt">
-                <h2>🧘 Before You Begin</h2>
-                <p>Take a deep breath. Clear your mind of the immediate past hour and your current task.</p>
-                <p>Think back on the <strong>past year</strong>.</p>
-                <p>For each statement, complete the sentence <strong>"Over the past year, I..."</strong> then use the slider to rate how true the statement was for you.</p>
-                <p class="emphasis">1 = the most extreme negative experience</p>
-                <p class="emphasis">10 = minimal pain/maximum positive</p>
-                <button class="primary-button" onclick="startQuiz()">Start Quiz</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Quiz Screen -->
     <div id="quiz-screen" class="screen">
-        <div class="progress-container">
-            <div class="progress-bar">
-                <div id="progress-fill" class="progress-fill"></div>
-            </div>
-        </div>
-
         <div class="container quiz-container">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
             <div id="question-content">
                 <div class="category-icon" id="category-icon"></div>
                 <h3 class="category-title" id="category-title"></h3>
@@ -80,7 +64,7 @@
 
     <!-- Results Screen -->
     <div id="results-screen" class="screen">
-        <div class="container results-container">
+        <div class="results-container">
             <h2>Your Life Wheel Score</h2>
             <div id="results-chart-container">
                 <canvas id="results-canvas" width="600" height="600"></canvas>

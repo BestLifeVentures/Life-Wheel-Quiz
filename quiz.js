@@ -7,17 +7,17 @@ const quizData = {
             color: '#EC4899',
             questions: [
                 {
-                    text: 'Over the past year, I felt about my ability to manage my money and handle unexpected expenses...',
+                    text: 'felt about my ability to manage my money and handle unexpected expenses...',
                     labelLeft: '...felt completely out of control and financially helpless.',
                     labelRight: '...felt highly competent and always in command of my financial situation.'
                 },
                 {
-                    text: 'Over the past year, I felt about the relief and security of my current finances covering my needs and plans...',
+                    text: 'felt about the relief and security of my current finances covering my needs and plans...',
                     labelLeft: '...felt constantly stressed and terrified that my finances were inadequate for my basic needs.',
                     labelRight: '...felt consistently secure and calm about my current and future financial status.'
                 },
                 {
-                    text: 'Over the past year, I believed about the fairness of my income and opportunity...',
+                    text: 'believed about the fairness of my income and opportunity...',
                     labelLeft: '...believed my financial situation was profoundly unfair and felt deep resentment.',
                     labelRight: '...believed my financial situation was completely fair and felt deep satisfaction.'
                 }
@@ -29,17 +29,17 @@ const quizData = {
             color: '#06B6D4',
             questions: [
                 {
-                    text: 'Over the past year, I believed about the impact of my choices (diet, sleep, exercise) on my physical well-being...',
+                    text: 'believed about the impact of my choices (diet, sleep, exercise) on my physical well-being...',
                     labelLeft: '...believed my health outcomes were out of my hands and felt powerless to change them.',
                     labelRight: '...believed my health outcomes were strongly within my control and felt empowered by my choices.'
                 },
                 {
-                    text: 'Over the past year, I felt about the physical appearance and capabilities of my body...',
+                    text: 'felt about the physical appearance and capabilities of my body...',
                     labelLeft: '...felt deeply ashamed and consistently judged my body negatively.',
                     labelRight: '...felt deep acceptance and consistently appreciated my body\'s form and function.'
                 },
                 {
-                    text: 'Over the past year, I experienced discomfort, low energy, or pain in my daily physical life...',
+                    text: 'experienced discomfort, low energy, or pain in my daily physical life...',
                     labelLeft: '...felt severely handicapped and consistently drained by physical discomfort and lack of energy.',
                     labelRight: '...felt consistently energetic and rarely experienced any significant physical discomfort.'
                 }
@@ -51,17 +51,17 @@ const quizData = {
             color: '#A855F7',
             questions: [
                 {
-                    text: 'Over the past year, I felt about my worthiness and equality compared to others...',
+                    text: 'felt about my worthiness and equality compared to others...',
                     labelLeft: '...felt fundamentally worthless and undeserving of basic happiness or good treatment.',
                     labelRight: '...felt profoundly worthy and deserving of all the happiness life has to offer.'
                 },
                 {
-                    text: 'Over the past year, I felt about my ability to recover from setbacks or strong negative emotions...',
+                    text: 'felt about my ability to recover from setbacks or strong negative emotions...',
                     labelLeft: '...felt completely overwhelmed and incapable of recovering from emotional challenges.',
                     labelRight: '...felt highly resilient and confident in my ability to manage and recover from any emotional distress.'
                 },
                 {
-                    text: 'Over the past year, I felt about my influence over my life\'s path...',
+                    text: 'felt about my influence over my life\'s path...',
                     labelLeft: '...felt utterly powerless and trapped by external circumstances controlling my life.',
                     labelRight: '...felt highly powerful and confident in my ability to shape my life\'s decisions and direction.'
                 }
@@ -73,17 +73,17 @@ const quizData = {
             color: '#F97316',
             questions: [
                 {
-                    text: 'Over the past year, I believed about the availability of people who would reliably be there for me in a major crisis...',
+                    text: 'believed about the availability of people who would reliably be there for me in a major crisis...',
                     labelLeft: '...believed I was completely alone and doubted anyone would truly stand by me in a crisis.',
                     labelRight: '...believed I was completely surrounded by reliable people who would support me no matter what.'
                 },
                 {
-                    text: 'Over the past year, I experienced in my key relationships regarding mutual respect and understanding...',
+                    text: 'experienced in my key relationships regarding mutual respect and understanding...',
                     labelLeft: '...experienced frequent and deep conflict and felt highly misunderstood in my key relationships.',
                     labelRight: '...experienced consistent harmony and felt deeply respected and understood in my key relationships.'
                 },
                 {
-                    text: 'Over the past year, I felt about being completely open and vulnerable with people close to me...',
+                    text: 'felt about being completely open and vulnerable with people close to me...',
                     labelLeft: '...felt I had to hide my true self and felt emotionally isolated from others.',
                     labelRight: '...felt I could be consistently vulnerable and deeply connected to others without any fear of judgment.'
                 }
@@ -95,17 +95,17 @@ const quizData = {
             color: '#84CC16',
             questions: [
                 {
-                    text: 'Over the past year, I felt about the value and purpose of my life and the activities I engaged in...',
+                    text: 'felt about the value and purpose of my life and the activities I engaged in...',
                     labelLeft: '...felt my life was fundamentally meaningless, aimless, and I lacked any compelling purpose.',
                     labelRight: '...felt my life had a clear, profound purpose that motivated my every action.'
                 },
                 {
-                    text: 'Over the past year, I experienced a sense of wonder, awe, or connection to something vast and inspiring...',
+                    text: 'experienced a sense of wonder, awe, or connection to something vast and inspiring...',
                     labelLeft: '...felt life was monotonous and I rarely experienced true wonder or deep spiritual connection.',
                     labelRight: '...frequently experienced moments of awe and felt deeply connected to a higher power or the universe.'
                 },
                 {
-                    text: 'Over the past year, I felt about my own future and the future of the world around me...',
+                    text: 'felt about my own future and the future of the world around me...',
                     labelLeft: '...felt consistently hopeless and deeply pessimistic about both my personal future and the world\'s direction.',
                     labelRight: '...felt consistently hopeful and fundamentally optimistic about my future and the world\'s progress.'
                 }
@@ -153,21 +153,37 @@ document.addEventListener('DOMContentLoaded', () => {
             firstName: document.getElementById('first-name').value,
             email: document.getElementById('email').value
         };
-        showScreen('framing-screen');
-    });
-
-    // Initialize slider
-    const slider = document.getElementById('answer-slider');
-    const sliderValue = document.getElementById('slider-value');
-
-    slider.addEventListener('input', (e) => {
-        sliderValue.textContent = e.target.value;
-        updateSliderValuePosition();
+        startQuiz();
     });
 
     // Initialize with default value
     answers = new Array(allQuestions.length).fill(5);
 });
+
+// Add slider auto-advance functionality
+function initSlider() {
+    const slider = document.getElementById('answer-slider');
+    let hasInteracted = false;
+
+    // Auto-advance on change (after user interaction)
+    slider.addEventListener('change', (e) => {
+        if (hasInteracted) {
+            setTimeout(() => {
+                nextQuestion();
+            }, 300);
+        }
+    });
+
+    // Track that user has interacted
+    slider.addEventListener('input', (e) => {
+        hasInteracted = true;
+    });
+
+    // Reset interaction flag when question changes
+    slider.addEventListener('questionChanged', () => {
+        hasInteracted = false;
+    });
+}
 
 function showScreen(screenId) {
     document.querySelectorAll('.screen').forEach(screen => {
@@ -179,6 +195,7 @@ function showScreen(screenId) {
 function startQuiz() {
     showScreen('quiz-screen');
     currentQuestionIndex = 0;
+    initSlider();
     displayQuestion();
     updateProgress();
 }
@@ -189,44 +206,27 @@ function displayQuestion() {
     // Update content
     document.getElementById('category-icon').textContent = question.icon;
     document.getElementById('category-title').textContent = question.category;
-    document.getElementById('question-text').textContent = question.text;
+    document.getElementById('question-text').textContent = 'Over the past year, I ' + question.text;
     document.getElementById('label-left').textContent = question.labelLeft;
     document.getElementById('label-right').textContent = question.labelRight;
 
     // Set slider value
     const slider = document.getElementById('answer-slider');
     slider.value = answers[currentQuestionIndex];
-    document.getElementById('slider-value').textContent = answers[currentQuestionIndex];
-    updateSliderValuePosition();
+
+    // Dispatch custom event to reset interaction tracking
+    slider.dispatchEvent(new Event('questionChanged'));
 
     // Update buttons
     const backButton = document.getElementById('back-button');
-    const nextButton = document.getElementById('next-button');
 
     if (currentQuestionIndex === 0) {
         backButton.style.visibility = 'hidden';
     } else {
         backButton.style.visibility = 'visible';
     }
-
-    if (currentQuestionIndex === allQuestions.length - 1) {
-        nextButton.textContent = 'See Results';
-    } else {
-        nextButton.textContent = 'Next';
-    }
 }
 
-function updateSliderValuePosition() {
-    const slider = document.getElementById('answer-slider');
-    const sliderValue = document.getElementById('slider-value');
-    const value = slider.value;
-    const min = slider.min;
-    const max = slider.max;
-
-    // Calculate position
-    const percentage = ((value - min) / (max - min)) * 100;
-    sliderValue.style.left = `calc(${percentage}% - ${sliderValue.offsetWidth / 2}px)`;
-}
 
 function updateProgress() {
     let totalProgress = 0;
@@ -297,11 +297,12 @@ function drawWheelChart(categoryScores) {
     const centerY = canvas.height / 2;
     const maxRadius = 220;
 
-    // Clear canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Clear canvas with dark background
+    ctx.fillStyle = '#2C3E50';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Draw background circles
-    ctx.strokeStyle = '#E5E7EB';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
     ctx.lineWidth = 1;
     for (let i = 1; i <= 10; i++) {
         ctx.beginPath();
@@ -313,7 +314,7 @@ function drawWheelChart(categoryScores) {
     const numCategories = categoryScores.length;
     const angleStep = (2 * Math.PI) / numCategories;
 
-    ctx.strokeStyle = '#E5E7EB';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
     ctx.lineWidth = 1;
     for (let i = 0; i < numCategories; i++) {
         const angle = i * angleStep - Math.PI / 2;
@@ -377,7 +378,7 @@ function drawWheelChart(categoryScores) {
     });
 
     // Draw category labels and values
-    ctx.fillStyle = '#1F2937';
+    ctx.fillStyle = '#ECF0F1';
     ctx.font = 'bold 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
     ctx.textAlign = 'center';
 
@@ -391,7 +392,7 @@ function drawWheelChart(categoryScores) {
         ctx.fillStyle = cat.color;
         ctx.fillText(cat.icon, x, y - 10);
         ctx.font = 'bold 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
-        ctx.fillStyle = '#1F2937';
+        ctx.fillStyle = '#ECF0F1';
         ctx.fillText(cat.name, x, y + 8);
 
         // Draw score
@@ -404,15 +405,15 @@ function drawWheelChart(categoryScores) {
     });
 
     // Draw center circle with "RATE 1-10"
-    ctx.fillStyle = '#FFFFFF';
+    ctx.fillStyle = '#2C3E50';
     ctx.beginPath();
     ctx.arc(centerX, centerY, 60, 0, 2 * Math.PI);
     ctx.fill();
-    ctx.strokeStyle = '#2D5BFF';
-    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+    ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = '#2D5BFF';
+    ctx.fillStyle = '#ECF0F1';
     ctx.font = 'bold 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
     ctx.textAlign = 'center';
     ctx.fillText('RATE', centerX, centerY - 5);

@@ -57,7 +57,7 @@ const quizData = {
                 },
                 {
                     text: 'felt about the emotions I experienced, even the difficult or negative ones.',
-                    labelLeft: '...felt I hated or despised the difficult emotions I experienced.',
+                    labelLeft: '...rejected or avoided the emotions I experienced.',
                     labelRight: '...felt I liked and accepted all the emotions I experienced.'
                 },
                 {

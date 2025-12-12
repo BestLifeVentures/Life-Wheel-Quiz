@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Core Four</title>
+    <link rel="stylesheet" href="core-four-styles.css">
+</head>
+<body>
+    <!-- Page 1: Intro -->
+    <div id="page-1" class="page active">
+        <div class="container">
+            <h1>Your Core Four</h1>
+            <p class="subtitle">(Inner Guidance From Your Four Superpowers)</p>
+            <p class="citation">- Framework By Tony Robbins</p>
+
+            <div class="video-frame">
+                <iframe id="video-frame-1" width="100%" height="100%"
+                    src=""
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="form-group">
+                <label for="blv-id">
+                    BLV ID <span class="optional-text">Save info to your BLV portfolio</span>
+                </label>
+                <input type="text" id="blv-id" class="input-field">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="input-field" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="input-field" required>
+            </div>
+
+            <button class="btn btn-primary" onclick="startSession()">Start Session</button>
+        </div>
+    </div>
+
+    <!-- Pages 2-5: Question Pages -->
+    <div id="page-2" class="page">
+        <div class="container">
+            <h1>Play Video</h1>
+
+            <div class="video-frame">
+                <iframe id="video-frame-2" width="100%" height="100%"
+                    src=""
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <p class="instruction-text">
+                Better connection to your core four comes when your eyes are closed and you are in a meditative state.
+                To support this we have created a record button. If you prefer to leave your core state, you can simply type in your answers.
+            </p>
+
+            <div class="audio-section">
+                <button class="btn btn-audio" onclick="playAudio(2)">Enter Optimal State</button>
+                <p class="audio-text">Play this audio to connect with your core state.</p>
+                <audio id="audio-2" src=""></audio>
+            </div>
+
+            <div class="question-group">
+                <div class="question-item">
+                    <label>All you need to focus on is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q2-1" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(2, 1)">Record</button>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>All you need to remember is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q2-2" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(2, 2)">Record</button>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>All you need to do is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q2-3" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(2, 3)">Record</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="nextPage(3)">Next</button>
+        </div>
+    </div>
+
+    <div id="page-3" class="page">
+        <div class="container">
+            <h1>Play Video</h1>
+
+            <div class="video-frame">
+                <iframe id="video-frame-3" width="100%" height="100%"
+                    src=""
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <p class="instruction-text">
+                Better connection to your core four comes when your eyes are closed and you are in a meditative state.
+                To support this we have created a record button. If you prefer to leave your core state, you can simply type in your answers.
+            </p>
+
+            <div class="audio-section">
+                <button class="btn btn-audio" onclick="playAudio(3)">Enter Optimal State</button>
+                <p class="audio-text">Play this audio to connect with your core state.</p>
+                <audio id="audio-3" src=""></audio>
+            </div>
+
+            <div class="question-group">
+                <div class="question-item">
+                    <label>All you need to focus on is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q3-1" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(3, 1)">Record</button>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>All you need to remember is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q3-2" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(3, 2)">Record</button>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>All you need to do is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q3-3" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(3, 3)">Record</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="nextPage(4)">Next</button>
+        </div>
+    </div>
+
+    <div id="page-4" class="page">
+        <div class="container">
+            <h1>Play Video</h1>
+
+            <div class="video-frame">
+                <iframe id="video-frame-4" width="100%" height="100%"
+                    src=""
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <p class="instruction-text">
+                Better connection to your core four comes when your eyes are closed and you are in a meditative state.
+                To support this we have created a record button. If you prefer to leave your core state, you can simply type in your answers.
+            </p>
+
+            <div class="audio-section">
+                <button class="btn btn-audio" onclick="playAudio(4)">Enter Optimal State</button>
+                <p class="audio-text">Play this audio to connect with your core state.</p>
+                <audio id="audio-4" src=""></audio>
+            </div>
+
+            <div class="question-group">
+                <div class="question-item">
+                    <label>All you need to focus on is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q4-1" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(4, 1)">Record</button>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>All you need to remember is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q4-2" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(4, 2)">Record</button>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>All you need to do is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q4-3" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(4, 3)">Record</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="nextPage(5)">Next</button>
+        </div>
+    </div>
+
+    <div id="page-5" class="page">
+        <div class="container">
+            <h1>Play Video</h1>
+
+            <div class="video-frame">
+                <iframe id="video-frame-5" width="100%" height="100%"
+                    src=""
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <p class="instruction-text">
+                Better connection to your core four comes when your eyes are closed and you are in a meditative state.
+                To support this we have created a record button. If you prefer to leave your core state, you can simply type in your answers.
+            </p>
+
+            <div class="audio-section">
+                <button class="btn btn-audio" onclick="playAudio(5)">Enter Optimal State</button>
+                <p class="audio-text">Play this audio to connect with your core state.</p>
+                <audio id="audio-5" src=""></audio>
+            </div>
+
+            <div class="question-group">
+                <div class="question-item">
+                    <label>All you need to focus on is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q5-1" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(5, 1)">Record</button>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>All you need to remember is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q5-2" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(5, 2)">Record</button>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>All you need to do is</label>
+                    <div class="input-with-button">
+                        <textarea class="textarea-field" id="q5-3" maxlength="1000" placeholder="Type or record your answer..."></textarea>
+                        <button class="btn btn-record" onclick="recordAnswer(5, 3)">Record</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="nextPage(6)">Next</button>
+        </div>
+    </div>
+
+    <!-- Page 6: Results -->
+    <div id="page-6" class="page">
+        <div class="container">
+            <h1>Results</h1>
+
+            <div class="button-group">
+                <div class="button-with-text">
+                    <button class="btn btn-primary" onclick="copyForAI()">Copy for AI</button>
+                    <p class="small-text">paste your results into AI. (we suggest gemini due to largest free plan limits)</p>
+                </div>
+
+                <button class="btn btn-secondary" onclick="downloadResults()">Download Result</button>
+            </div>
+
+            <div id="results-preview" class="results-preview"></div>
+        </div>
+    </div>
+
+    <script src="core-four.js"></script>
+</body>
+</html>

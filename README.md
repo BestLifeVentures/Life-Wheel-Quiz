@@ -1,3 +1,5 @@
+trigger redeploy
+
 # Life Wheel Quiz - 3 Minute Life Score Assessment
 
 A psychologically-focused, emotion-anchored life assessment tool that helps users evaluate their life satisfaction across 5 key dimensions: Money, Health, Mindset, Relationships, and Spirituality.

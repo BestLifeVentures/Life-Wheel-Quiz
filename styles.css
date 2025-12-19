@@ -1,0 +1,431 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Dark grey theme with yellow accents */
+    --accent-yellow: #D4A574;
+    --accent-yellow-bright: #E8C4A0;
+    --accent-yellow-dim: #B8936B;
+
+    /* Dark grey scale */
+    --grey-50: #1A1D23;
+    --grey-100: #23272F;
+    --grey-200: #2D3139;
+    --grey-300: #3A3F4A;
+    --grey-400: #4F5562;
+    --grey-500: #6B7280;
+    --grey-600: #9CA3AF;
+    --grey-700: #C1C7D0;
+    --grey-800: #E5E7EB;
+    --grey-900: #F9FAFB;
+
+    /* Functional colors */
+    --background: #1A1D23;
+    --surface: #23272F;
+    --border: #3A3F4A;
+    --text-primary: #F9FAFB;
+    --text-secondary: #C1C7D0;
+    --text-tertiary: #9CA3AF;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.screen.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container */
+.container {
+    background: var(--surface);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+    padding: 3rem 2rem;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+}
+
+/* Typography */
+h2 {
+    color: var(--text-primary);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.small-title {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    margin-bottom: 2rem;
+}
+
+.small-label {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.15s ease;
+    background: var(--grey-200);
+    color: var(--text-primary);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.15);
+}
+
+/* Buttons */
+.primary-button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-yellow);
+    color: var(--grey-50);
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.primary-button:hover {
+    background: var(--accent-yellow-bright);
+}
+
+.primary-button:active {
+    background: var(--accent-yellow-dim);
+    transform: scale(0.98);
+}
+
+.secondary-button {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.secondary-button:hover {
+    background: var(--grey-200);
+    border-color: var(--grey-400);
+    color: var(--text-primary);
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--grey-300);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent-yellow);
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+/* Quiz Container */
+.quiz-container {
+    margin-top: 0;
+}
+
+#question-content {
+    text-align: center;
+}
+
+.category-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.category-title {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.instruction {
+    color: var(--text-tertiary);
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.question-text {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* Slider */
+.slider-container {
+    margin: 2rem 0 3rem;
+}
+
+.slider-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--background);
+    outline: none;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-yellow);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(212, 165, 116, 0.5);
+    transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.7);
+}
+
+.slider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-yellow);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 8px rgba(212, 165, 116, 0.5);
+    transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.7);
+}
+
+.slider-value {
+    display: none;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.label-left,
+.label-right {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    max-width: 45%;
+}
+
+.label-left {
+    text-align: left;
+}
+
+.label-right {
+    text-align: right;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.button-group .secondary-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    background: transparent;
+    color: var(--text-medium);
+    border: 1px solid var(--border);
+}
+
+.button-group .primary-button {
+    display: none;
+}
+
+/* Results */
+.results-container {
+    max-width: 700px;
+    text-align: center;
+    background: var(--surface);
+    color: var(--text-primary);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results-container h2 {
+    color: var(--text-primary);
+}
+
+#results-chart-container {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+#results-canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.category-scores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.score-item {
+    background: var(--grey-200);
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-yellow);
+}
+
+.score-item h4 {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.score-item .score {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-yellow);
+}
+
+/* Mobile Optimization */
+@media (max-width: 640px) {
+    .screen {
+        padding: 1rem 0.5rem;
+    }
+
+    .container {
+        padding: 2rem 1.5rem;
+        border-radius: 12px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .question-text {
+        font-size: 1rem;
+    }
+
+    .slider-labels {
+        font-size: 0.7rem;
+    }
+
+    .category-scores {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ensure no scrolling on mobile */
+@media (max-height: 700px) {
+    .container {
+        padding: 1.5rem 1rem;
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+
+    .question-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .slider-container {
+        margin: 1.5rem 0 2rem;
+    }
+}

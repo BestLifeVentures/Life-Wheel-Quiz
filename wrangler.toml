@@ -1,0 +1,9 @@
+name = "life-wheel-quiz"
+compatibility_date = "2025-12-10"
+
+# Static assets configuration for Cloudflare Pages
+[assets]
+directory = "./"
+
+# All HTML, CSS, JS files are in the root directory
+# No build process required

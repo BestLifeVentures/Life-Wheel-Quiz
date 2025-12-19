@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Wheel Quiz - QR Code</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .qr-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .circular-qr {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 0 10px rgba(45, 91, 255, 0.1),
+                        0 0 0 20px rgba(253, 176, 34, 0.1);
+        }
+
+        #qrcode {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            color: #2D5BFF;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: #6B7280;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .url-input-container {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #E5E7EB;
+        }
+
+        .url-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #2D5BFF 0%, #1E40AF 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45, 91, 255, 0.4);
+        }
+
+        .link-text {
+            font-size: 0.875rem;
+            color: #2D5BFF;
+            word-break: break-all;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #EFF6FF;
+            border-radius: 8px;
+        }
+
+        .instructions {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: #9CA3AF;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="qr-container">
+        <div class="circular-qr">
+            <div id="qrcode"></div>
+        </div>
+        <h2>Take the Quiz</h2>
+        <p>Scan or click to start your 3-minute life assessment</p>
+
+        <div class="url-input-container">
+            <input
+                type="text"
+                class="url-input"
+                id="quiz-url"
+                placeholder="Enter your quiz URL (e.g., https://yoursite.com/quiz)"
+                value="">
+            <button class="generate-btn" onclick="generateQR()">Generate QR Code</button>
+            <div class="link-text" id="display-url" style="display: none;"></div>
+        </div>
+
+        <p class="instructions">
+            For video: Use OBS or screen recording to capture this QR code.<br>
+            Visitors can scan with their phone or click if viewing digitally.
+        </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        let qrcode = null;
+
+        function generateQR() {
+            const urlInput = document.getElementById('quiz-url');
+            const url = urlInput.value.trim();
+
+            if (!url) {
+                alert('Please enter a valid URL');
+                return;
+            }
+
+            // Clear existing QR code
+            const qrcodeContainer = document.getElementById('qrcode');
+            qrcodeContainer.innerHTML = '';
+
+            // Generate new QR code
+            qrcode = new QRCode(qrcodeContainer, {
+                text: url,
+                width: 260,
+                height: 260,
+                colorDark: "#2D5BFF",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // Display URL
+            const displayUrl = document.getElementById('display-url');
+            displayUrl.textContent = url;
+            displayUrl.style.display = 'block';
+        }
+
+        // Auto-generate if URL is in query params or hash
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const quizUrl = urlParams.get('url') || window.location.hash.substring(1);
+
+            if (quizUrl) {
+                document.getElementById('quiz-url').value = decodeURIComponent(quizUrl);
+                generateQR();
+            }
+        });
+    </script>
+</body>
+</html>
